@@ -27,7 +27,7 @@ gem install inova_fcm -v '~> 0.1.0'
 rails generate inova_fcm:install
 ```
 
-This will create a configuration file at config/initializers/inova_aws_s3.rb. Open the file and set your AWS credentials:
+This will create a configuration file at config/initializers/inova_fcm.rb. Open the file and set your Firebase credentials:
 
 ```ruby
 InovaFCM.configure do |config|
@@ -38,7 +38,7 @@ InovaFCM.configure do |config|
 end
 ```
 
-Replace the placeholder values with your actual AWS credentials.
+Replace the placeholder values with your actual Firebase credentials.
 
 ## Contributing
 
@@ -50,4 +50,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the InovaAwsS3 project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ahmedmos3ad/inova_fcm/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the InovaFCM project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ahmedmos3ad/inova_fcm/blob/master/CODE_OF_CONDUCT.md).
