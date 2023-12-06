@@ -40,6 +40,16 @@ end
 
 Replace the placeholder values with your actual Firebase credentials.
 
+To send a notification to a device, you can use the following method:
+
+```ruby
+InovaFCM::Service.new(registration_ids: ["registration_id"],
+  notification: {title: "tite", body: "body"},
+  data: {id: 1}).send_notification
+```
+
+Where registration_ids is an array of device registration ids, notification is a hash containing the notification's title and body, and data is a hash of data to be sent with the notification.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at <https://github.com/ahmedmos3ad/inova_fcm/pulls>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ahmedmos3ad/inova_fcm/blob/master/CODE_OF_CONDUCT.md).
