@@ -7,13 +7,13 @@ InovaFCM is a Ruby gem designed to simplify interactions with Firebase Cloud Mes
 To use this gem in your project, add it to your application's Gemfile:
 
 ```ruby
-gem 'inova_fcm', '~> 0.1.0'
+gem 'inova_fcm', '~> 0.2.0'
 ```
 
 Alternatively, you can install the gem directly using:
 
 ```bash
-gem install inova_fcm -v '~> 0.1.0'
+gem install inova_fcm -v '~> 0.2.0'
 ```
 
 ## Requirments

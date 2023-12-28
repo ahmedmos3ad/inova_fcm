@@ -3,6 +3,8 @@ module InovaFCM
     require "fcm"
     require "json"
 
+    MAX_TOPIC_REGISTRATION_BATCH_SIZE = 1000
+
     attr_reader :registration_ids, :notification, :data, :topic
 
     def initialize(registration_ids: [], notification: {}, data: {}, topic: SecureRandom.uuid + Time.now.to_i.to_s)
@@ -58,11 +60,15 @@ module InovaFCM
     end
 
     def register_tokens_to_topic
-      @fcm.batch_topic_subscription(@topic, @registration_ids)
+      @registration_ids.each_slice(MAX_TOPIC_REGISTRATION_BATCH_SIZE) do |registration_ids_batch|
+        @fcm.batch_topic_subscription(@topic, registration_ids_batch)
+      end
     end
 
     def unregister_tokens_from_topic
-      @fcm.batch_topic_unsubscription(@topic, @registration_ids)
+      @registration_ids.each_slice(MAX_TOPIC_REGISTRATION_BATCH_SIZE) do |registration_ids_batch|
+        @fcm.batch_topic_unsubscription(@topic, registration_ids_batch)
+      end
     end
 
     def validate_attributes!
